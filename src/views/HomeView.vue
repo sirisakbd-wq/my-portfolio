@@ -322,10 +322,18 @@ const activities = ref([
 ])
 
 // --- ข้อมูลทักษะ (Skills) ---
+// --- ข้อมูลทักษะ (Skills) ---
 const skills = [
   { name: 'Nuxt.js Project', level: 'Intermediate', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg', color: 'bg-emerald-50', labelColor: 'bg-yellow-500' },
   { name: 'Vue.js Project', level: 'Intermediate', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg', color: 'bg-emerald-50', labelColor: 'bg-yellow-500' },
-  { name: 'Design System', level: 'Intermediate', category: 'Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', color: 'bg-pink-50', labelColor: 'bg-yellow-500' },
+  { name: 'React', level: 'Basic', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', color: 'bg-sky-50', labelColor: 'bg-red-500' },
+  { name: 'Figma', level: 'Intermediate', category: 'Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', color: 'bg-pink-50', labelColor: 'bg-yellow-500' },
+  
+  // เพิ่ม Adobe Photoshop และ Premiere Pro ในหมวด Design
+  { name: 'Photoshop', level: 'Intermediate', category: 'Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg', color: 'bg-blue-900/10', labelColor: 'bg-yellow-500' },
+  { name: 'Premiere Pro', level: 'Intermediate', category: 'Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg', color: 'bg-purple-900/10', labelColor: 'bg-yellow-500' },
+  { name: 'ChatGPT', level: 'Advanced', category: 'Tools', icon: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg', color: 'bg-teal-50', labelColor: 'bg-green-500' },
+  { name: 'draw.io', level: 'Intermediate', category: 'Tools', icon: 'https://cdn.simpleicons.org/diagramsdotnet/F08705', color: 'bg-orange-50', labelColor: 'bg-yellow-500' },
   { name: 'HTML', level: 'Advanced', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', color: 'bg-orange-50', labelColor: 'bg-green-500' },
   { name: 'CSS', level: 'Advanced', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', color: 'bg-blue-50', labelColor: 'bg-green-500' },
   { name: 'JavaScript', level: 'Basic', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', color: 'bg-yellow-50', labelColor: 'bg-red-500' },
