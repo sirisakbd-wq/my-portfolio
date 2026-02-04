@@ -4,16 +4,9 @@
       <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         
         <div class="flex items-center gap-8">
-          <RouterLink to="/" class="group flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-all">
-            <span class="text-xl group-hover:-translate-x-1 transition-transform">←</span> 
-            <span class="hidden sm:block">กลับหน้าหลัก</span>
-          </RouterLink>
+      
 
-          <div class="hidden md:flex gap-8 text-sm font-bold text-gray-500">
-            <a href="#experience" class="hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-all py-1">สถานที่ฝึกงาน</a>
-            <a href="#skills" class="hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-all py-1">ทักษะ (Skills)</a>
-            <a href="#activities" class="hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-all py-1">กิจกรรมและผลงานอื่นๆ</a>
-          </div>
+      
         </div>
 
         <RouterLink 
@@ -26,7 +19,7 @@
           </span>
           
           <span class="text-xs font-bold text-blue-700 group-hover:text-white transition-colors">
-            Available for Work
+           ผลงาน Project 
           </span>
 
           <div class="bg-blue-600 group-hover:bg-white p-1 rounded-full transition-colors">
@@ -299,135 +292,69 @@
   overflow: hidden;
 }
 </style>
+
 <script setup>
 import { ref, computed } from 'vue'
-const activities = [
- {
+
+// --- ข้อมูลกิจกรรม (Activities) ---
+const activities = ref([
+  {
     title: 'Project IOT',
-    description: 'มินิโปรเจค iOT ให้อาหารสุนัขอัตโนมัติ',
+    description: 'มินิโปรเจค iOT ให้อาหารสุนัขอัตโนมัติ โดยใช้การควบคุมผ่านระบบออนไลน์และเซ็นเซอร์วัดปริมาณอาหาร',
     image: new URL('../assets/images/projectiot.png', import.meta.url).href,
-    date: '10/10/2022'
+    date: '10/10/2022',
+    tags: ['Arduino', 'IoT', 'C++']
   },
   {
     title: 'TCC Technology (TCCtech)',
-    description: 'ภาพรวมช่วงฝึกงานใน TCC Technology (TCCtech)',
+    description: 'ภาพรวมช่วงฝึกงานที่ TCC Technology เรียนรู้ระบบ Front-End และการทำงานร่วมกับทีมพัฒนาในระดับองค์กร',
     image: new URL('../assets/images/TCC.jpg', import.meta.url).href,
-    date: '28/10/2023'
+    date: '28/10/2023',
+    tags: ['Internship', 'Frontend', 'Vue.js']
   },
   {
     title: 'กิจกรรมแข่งขัน Happy Soft',
-    description: 'เป็นตัวแทนไปแข่งขัน Happy Soft ได้อันดับที่ 3',
+    description: 'เป็นตัวแทนไปแข่งขันการพัฒนาซอฟต์แวร์ Happy Soft และได้รับรางวัลอันดับที่ 3',
     image: new URL('../assets/images/BIS.jpg', import.meta.url).href,
-    date: '25/12/2022'
+    date: '25/12/2022',
+    tags: ['Competition', 'Software Dev']
   }
-]
-// 1. ข้อมูลทักษะทั้งหมดของคุณศิริศักดิ์ (อ้างอิงจากเรซูเม่)
+])
+
+// --- ข้อมูลทักษะ (Skills) ---
 const skills = [
-  { 
-    name: 'Nuxt.js Project', 
-    level: 'Intermediate', 
-    category: 'All', 
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg', 
-    color: 'bg-emerald-50', 
-    labelColor: 'bg-yellow-500',
-    appPreview: 'https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&q=80&w=800' // รูปแนว Web Application สมัยใหม่
-  },
-  { 
-    name: 'React', 
-    level: 'Basic', 
-    category: 'Frontend', 
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', 
-    color: 'bg-sky-50', 
-    labelColor: 'bg-red-500',
-    appPreview: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800' // รูป Mockup สำหรับ React
-  },
-  { 
-    name: 'Vue.js Project', 
-    level: 'Intermediate', 
-    category: 'All', 
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg', 
-    color: 'bg-emerald-50', 
-    labelColor: 'bg-yellow-500',
-    // เพิ่มรูปหน้าจอแอปตัวอย่าง (Mockup)
-    appPreview: 'https://images.unsplash.com/photo-1551288049-bbbda536ad89?q=80&w=2070&auto=format&fit=crop' 
-  },
-  { 
-    name: 'Design System', 
-    level: 'Intermediate', 
-    category: 'All', 
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', 
-    color: 'bg-pink-50', 
-    labelColor: 'bg-yellow-500',
-    appPreview: 'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=2070&auto=format&fit=crop'
-  },
-  // --- Frontend ---
-    { 
-    name: 'Nuxt.js Project', 
-    level: 'Intermediate', 
-    category: 'Frontend', 
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg', 
-    color: 'bg-emerald-50', 
-    labelColor: 'bg-yellow-500',
-    appPreview: 'https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&q=80&w=800' // รูปแนว Web Application สมัยใหม่
-  },
-  { 
-    name: 'JavaScript', 
-    level: 'Basic', 
-    category: 'Frontend', 
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', 
-    color: 'bg-yellow-50', 
-    labelColor: 'bg-red-500',
-    appPreview: 'https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?auto=format&fit=crop&q=80&w=800' // รูปแนว Logic/Code JS
-  },
+  { name: 'Nuxt.js Project', level: 'Intermediate', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg', color: 'bg-emerald-50', labelColor: 'bg-yellow-500' },
+  { name: 'Vue.js Project', level: 'Intermediate', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg', color: 'bg-emerald-50', labelColor: 'bg-yellow-500' },
+  { name: 'Design System', level: 'Intermediate', category: 'Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', color: 'bg-pink-50', labelColor: 'bg-yellow-500' },
   { name: 'HTML', level: 'Advanced', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', color: 'bg-orange-50', labelColor: 'bg-green-500' },
   { name: 'CSS', level: 'Advanced', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', color: 'bg-blue-50', labelColor: 'bg-green-500' },
-  { name: 'TypeScript', level: 'Intermediate', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg', color: 'bg-blue-50', labelColor: 'bg-yellow-500' },
-  { name: 'Vue.js', level: 'Intermediate', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg', color: 'bg-emerald-50', labelColor: 'bg-yellow-500' },
+  { name: 'JavaScript', level: 'Basic', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', color: 'bg-yellow-50', labelColor: 'bg-red-500' },
   { name: 'Tailwind CSS', level: 'Intermediate', category: 'Frontend', icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg', color: 'bg-sky-50', labelColor: 'bg-yellow-500' },
-  
-  // --- Backend ---
   { name: 'PostgreSQL', level: 'Intermediate', category: 'Backend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg', color: 'bg-slate-100', labelColor: 'bg-yellow-500' },
-  
-  // --- Design ---
-  { name: 'Photoshop', level: 'Intermediate', category: 'Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg', color: 'bg-blue-900/10', labelColor: 'bg-yellow-500' },
-  { name: 'Premiere Pro', level: 'Intermediate', category: 'Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg', color: 'bg-purple-900/10', labelColor: 'bg-yellow-500' },
-  { name: 'Figma', level: 'Basic', category: 'Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', color: 'bg-pink-50', labelColor: 'bg-red-500' },
-  
-  // --- Tools ---
- // เปลี่ยนบรรทัด Gemini ในไฟล์ PortfolioView.vue เป็นแบบนี้ครับ
- // --- Tools ---
-  { 
-    name: 'draw.io', 
-    level: 'Intermediate', 
-    category: 'Tools', 
-    // ใช้ไอคอนจาก Simple Icons ที่โหลดง่ายและเสถียร
-    icon: 'https://cdn.simpleicons.org/diagramsdotnet/F08705', 
-    color: 'bg-orange-50', 
-    labelColor: 'bg-yellow-500',
-    appPreview: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&q=80&w=800' 
-  },
-{ 
-  name: 'Gemini', 
-  level: 'Advanced', 
-  category: 'Tools', 
-  icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png', 
-  color: 'bg-gradient-to-br from-blue-50 to-purple-50', 
-  labelColor: 'bg-green-500' 
-},
-  { name: 'ChatGPT', level: 'Advanced', category: 'Tools', icon: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg', color: 'bg-teal-50', labelColor: 'bg-green-500' },
-  { name: 'VS Code', level: 'Advanced', category: 'Tools', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg', color: 'bg-blue-50', labelColor: 'bg-green-500' },
-  { name: 'Power BI', level: 'Basic', category: 'Tools', icon: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg', color: 'bg-yellow-50', labelColor: 'bg-red-500' },
+  { name: 'Gemini', level: 'Advanced', category: 'Tools', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png', color: 'bg-gradient-to-br from-blue-50 to-purple-50', labelColor: 'bg-green-500' },
+  { name: 'VS Code', level: 'Advanced', category: 'Tools', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg', color: 'bg-blue-50', labelColor: 'bg-green-500' }
 ]
 
-// 2. เก็บสถานะว่ากำลังเลือก Tab ไหน (Default คือ All)
-const currentTab = ref('All')
+// --- ระบบ Modal ---
+const isModalOpen = ref(false)
+const selectedActivity = ref(null)
 
-// 3. ตัวกรองข้อมูล (Filter Logic)
+const openActivity = (activity) => {
+  selectedActivity.value = activity
+  isModalOpen.value = true
+  document.body.style.overflow = 'hidden'
+}
+
+const closeModal = () => {
+  isModalOpen.value = false
+  document.body.style.overflow = 'auto'
+}
+
+// --- ระบบ Filter Skills ---
+const currentTab = ref('All')
+const categories = ['All', 'Frontend', 'Backend', 'Design', 'Tools']
 const filteredSkills = computed(() => {
-  if (currentTab.ref === 'All') return skills
+  if (currentTab.value === 'All') return skills
   return skills.filter(skill => skill.category === currentTab.value)
 })
-
-// รายชื่อหมวดหมู่สำหรับทำปุ่ม
-const categories = ['All', 'Frontend', 'Backend', 'Design', 'Tools']
 </script>
