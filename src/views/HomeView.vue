@@ -320,9 +320,6 @@ const activities = ref([
     tags: ['Competition', 'Software Dev']
   }
 ])
-
-// --- ข้อมูลทักษะ (Skills) ---
-// --- ข้อมูลทักษะ (Skills) ---
 const skills = [
   { name: 'Nuxt.js Project', level: 'Intermediate', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg', color: 'bg-emerald-50', labelColor: 'bg-yellow-500' },
   { name: 'Vue.js Project', level: 'Intermediate', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg', color: 'bg-emerald-50', labelColor: 'bg-yellow-500' },
